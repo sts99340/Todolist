@@ -79,11 +79,33 @@ ul {
     color:#B1C29E;
 }
 li {
+    align-items: center;
     margin: 2px;
-    padding: 2px;
+    padding: 5px;
     padding-left: 10px;
     border-radius: 5px;
     border: dotted #fada7a;
     background-color: #B1C29E;
     color:black
+}
+.taskitem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+}
+.taskitem div{
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 5px;
+}
+.taskActions{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.change {
+    width:30px;
 }
