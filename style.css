@@ -58,10 +58,15 @@ body {
 .add img{
     margin: 0px;
     padding: 0px;
-    border-radius: 0px;
-    border: 0px solid #fada7a;
+    border-radius: 100%;
+    border: 2px transparent;
     width: 50px;
-    background-color: #B1C29E;
+    background-color: transparent;
+}
+.add img:hover{
+    border: 2px solid #fada7a;
+    background-color: #FADA7A;
+    border-radius: 100%;
 }
 .add input[type="text"]{
     border:0px;
@@ -69,6 +74,12 @@ body {
     width:fit-content;
     font-size: 20px;
     font-family: 'Arial', sans-serif;
+    padding-left: 5px;
+}
+.add input[type="text"]:focus{
+    outline: none;
+    background-color: #FCE7C8;
+    border-radius: 25px;
 }
 /*list*/
 ul {
@@ -105,7 +116,37 @@ li {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    margin: 5px;
 }
 .change {
     width:30px;
+    margin:2px;
+    background-color: #FCE7C8;
+    border: 2px solid #fada7a;
+}
+/*editItem*/
+.editItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+}
+.editInput{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 25px;
+    border: 5px solid #fada7a;
+    background-color: #B1C29E;
+}
+.savebutton{
+    width:30px;
+    margin:2px;
+    background-color: #FCE7C8;
+    border: 2px solid #fada7a;
 }
