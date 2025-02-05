@@ -42,6 +42,7 @@ const task = document.getElementById('task'),
             list.appendChild(li);
             task.value = '';
         }
+        localStorage.setItem('list', list.innerHTML);
     }
 
     function UpdateTask(li) {
@@ -63,6 +64,7 @@ const task = document.getElementById('task'),
         editItem.appendChild(save);
 
         li.appendChild(editItem);
+        localStorage.setItem('list', list.innerHTML);
 
     }
 
@@ -88,6 +90,7 @@ const task = document.getElementById('task'),
             deleteImg.src = 'images/delete.png';
             deleteImg.addEventListener('click', function() {
                 list.removeChild(li);
+                localStorage.setItem('list', list.innerHTML);
             });
             taskActions.appendChild(editImg);
             taskActions.appendChild(deleteImg);
@@ -96,6 +99,35 @@ const task = document.getElementById('task'),
 
             li.innerHTML = '';
             li.appendChild(taskitem);
+        }
+        localStorage.setItem('list', list.innerHTML);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadTaskList();
+    });
+
+    function loadTaskList() {
+        const savedList = localStorage.getItem('list');
+        if (savedList) {
+            list.innerHTML = savedList;
+            const editButtons = list.querySelectorAll('.change[src="images/edit.png"]');
+            const deleteButtons = list.querySelectorAll('.change[src="images/delete.png"]');
+            
+            editButtons.forEach(function(editButton) {
+                editButton.addEventListener('click', function() {
+                    const li = editButton.closest('li');
+                    UpdateTask(li);
+                });
+            });
+    
+            deleteButtons.forEach(function(deleteButton) {
+                deleteButton.addEventListener('click', function() {
+                    const li = deleteButton.closest('li');
+                    list.removeChild(li);
+                    localStorage.setItem('list', list.innerHTML);
+                });
+            });
         }
     }
     
